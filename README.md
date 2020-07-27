@@ -147,6 +147,8 @@ Tomcat启动的目录为一个main方法类：org.apache.catalina.startup.Bootst
 
 
 运行项目，访问http://localhost:8080，得到结果：
+
+
 ![img](https://github.com/kunzhao3/img/blob/master/tomcat/7.png)
 
 
