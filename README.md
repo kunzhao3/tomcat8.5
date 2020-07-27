@@ -144,18 +144,14 @@ Tomcat启动的目录为一个main方法类：org.apache.catalina.startup.Bootst
 -Djava.util.logging.config.file=catalina-home/conf/logging.properties
 
  
-![img](https://github.com/kunzhao3/img/blob/master/tomcat/6.png)
+![img](https://github.com/kunzhao3/img/blob/master/tomcat/7.png)
 
  
 
  
 
 运行项目，访问http://localhost:8080，得到结果：
-![img](https://github.com/kunzhao3/img/blob/master/tomcat/7.png)
-
- 
-
- 
+![img](https://github.com/kunzhao3/img/blob/master/tomcat/8.png)
 
 原因是我们直接启动org.apache.catalina.startup.Bootstrap的时候没有加载org.apache.jasper.servlet.JasperInitializer，从而无法编译JSP。
 
@@ -165,8 +161,7 @@ Tomcat启动的目录为一个main方法类：org.apache.catalina.startup.Bootst
 
 添加位置如下图：
 
-![image-20200727143803328](/Users/zhaokun/Library/Application Support/typora-user-images/image-20200727143803328.png)
 
  修改完后，项目再启动，我们再在浏览器访问http://localhost:8080/ ，就可以看到我们所熟悉的经典欢迎页面了
 
-![img](https://github.com/kunzhao3/img/blob/master/tomcat/8.png)
+![img](https://github.com/kunzhao3/img/blob/master/tomcat/9.png)
