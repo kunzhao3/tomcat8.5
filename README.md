@@ -10,7 +10,7 @@ https://tomcat.apache.org/download-80.cgi
 
 解压、新建catalina-home目录，同时将目录中的conf和webapps文件夹复制到catalina-home目录中
 
- **![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011132536-2010246725.png)**
+ **![img](https://github.com/kunzhao3/img/blob/master/tomcat/2.png)**
 
  
 
@@ -97,11 +97,11 @@ https://tomcat.apache.org/download-80.cgi
 
 通过pom.xml文件构建一个新的工程
 
- ![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011205777-1001919067.png)
+ ![img](https://github.com/kunzhao3/img/blob/master/tomcat/3.png)
 
  
 
-![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011408111-1510395312.png)
+![img](https://github.com/kunzhao3/img/blob/master/tomcat/4.png)
 
  
 
@@ -111,7 +111,7 @@ https://tomcat.apache.org/download-80.cgi
 
 如果编译build的时候出现Test测试代码报错，注释该代码即可。Tomcat源码util.TestCookieFilter类会报错，将其注释即可
 
- ![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011423255-2121143166.png)
+ ![img](https://github.com/kunzhao3/img/blob/master/tomcat/5.png)
 
  
 
@@ -123,7 +123,7 @@ https://tomcat.apache.org/download-80.cgi
 
 Tomcat启动的目录为一个main方法类：org.apache.catalina.startup.Bootstrap
 
- ![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011459846-1870740156.png)
+ ![img](https://github.com/kunzhao3/img/blob/master/tomcat/6.png)
 
  
 
