@@ -146,7 +146,7 @@ Tomcat启动的目录为一个main方法类：org.apache.catalina.startup.Bootst
 
 
 
-运行项目，访问http://localhost:8080，得到结果：
+运行项目，访问http://localhost:8080 ,就可以看到
 
 
 ![img](https://github.com/kunzhao3/img/blob/master/tomcat/7.png)
@@ -161,6 +161,12 @@ Tomcat启动的目录为一个main方法类：org.apache.catalina.startup.Bootst
 添加代码：context.addServletContainerInitializer(new JasperInitializer(), null);
 
 添加位置如下图：
+
+
+![img](https://github.com/kunzhao3/img/blob/master/tomcat/8.png)
+
+
+
 
 
  修改完后，项目再启动，我们再在浏览器访问http://localhost:8080/ ，就可以看到我们所熟悉的经典欢迎页面了
