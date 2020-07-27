@@ -127,7 +127,6 @@ Tomcat启动的目录为一个main方法类：org.apache.catalina.startup.Bootst
 
  
 
- 
 
 添加VM options
 
@@ -143,16 +142,9 @@ Tomcat启动的目录为一个main方法类：org.apache.catalina.startup.Bootst
 
 -Djava.util.logging.config.file=catalina-home/conf/logging.properties
 
- 
-![img](https://github.com/kunzhao3/img/blob/master/tomcat/7.png)
-
- 
-
- 
-
+![img](https://github.com/kunzhao3/img/blob/master/tomcat/6.png)
 运行项目，访问http://localhost:8080，得到结果：
-![img](https://github.com/kunzhao3/img/blob/master/tomcat/8.png)
-
+![img](https://github.com/kunzhao3/img/blob/master/tomcat/7.png)
 原因是我们直接启动org.apache.catalina.startup.Bootstrap的时候没有加载org.apache.jasper.servlet.JasperInitializer，从而无法编译JSP。
 
 解决办法是在tomcat的源码org.apache.catalina.startup.ContextConfig中的configureStart函数中手动将JSP解析器初始化：
