@@ -1,79 +1,174 @@
-## Welcome to Apache Tomcat!
+# **1.下载Tomcat源代码：**
 
-### What Is It?
+https://tomcat.apache.org/download-80.cgi
 
-The Apache Tomcat® software is an open source implementation of the Java
-Servlet, JavaServer Pages, Java Expression Language and Java WebSocket
-technologies. The Java Servlet, JavaServer Pages, Java Expression Language and
-Java WebSocket specifications are developed under the
-[Java Community Process](https://jcp.org/en/introduction/overview).
+ ![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011112470-234631305.png)
 
-The Apache Tomcat software is developed in an open and participatory
-environment and released under the
-[Apache License version 2](https://www.apache.org/licenses/). The Apache Tomcat
-project is intended to be a collaboration of the best-of-breed developers from
-around the world. We invite you to participate in this open development
-project. To learn more about getting involved,
-[click here](https://tomcat.apache.org/getinvolved.html) or keep reading.
+ 
 
-Apache Tomcat software powers numerous large-scale, mission-critical web
-applications across a diverse range of industries and organizations. Some of
-these users and their stories are listed on the
-[PoweredBy wiki page](https://wiki.apache.org/tomcat/PoweredBy).
+# 2. **解压以及创建必要目录和配置**
 
-Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
-project logo are trademarks of the Apache Software Foundation.
+解压、新建catalina-home目录，同时将目录中的conf和webapps文件夹复制到catalina-home目录中
 
-### Get It
+ **![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011132536-2010246725.png)**
 
-For every major Tomcat version there is one download page containing
-links to the latest binary and source code downloads, but also
-links for browsing the download directories and archives:
-- [Tomcat 9](https://tomcat.apache.org/download-90.cgi)
-- [Tomcat 8](https://tomcat.apache.org/download-80.cgi)
-- [Tomcat 7](https://tomcat.apache.org/download-70.cgi)
+ 
 
-To facilitate choosing the right major Tomcat version one, we have provided a
-[version overview page](https://tomcat.apache.org/whichversion.html).
+ 
 
-### Documentation
+需要通过Maven组织文件，因此需要在根目录下创建目录中新建pom.xml文件：
 
-The documentation available as of the date of this release is
-included in the docs webapp which ships with tomcat. You can access that webapp
-by starting tomcat and visiting http://localhost:8080/docs/ in your browser.
-The most up-to-date documentation for each version can be found at:
-- [Tomcat 9](https://tomcat.apache.org/tomcat-9.0-doc/)
-- [Tomcat 8](https://tomcat.apache.org/tomcat-8.5-doc/)
-- [Tomcat 7](https://tomcat.apache.org/tomcat-7.0-doc/)
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>Tomcat8.5</artifactId>
+    <name>Tomcat8.5</name>
+    <version>8.5</version>
+    <build>
+        <finalName>Tomcat8.5</finalName>
+        <sourceDirectory>java</sourceDirectory>
+        <testSourceDirectory>test</testSourceDirectory>
+        <resources>
+            <resource>
+                <directory>java</directory>
+            </resource>
+        </resources>
+        <testResources>
+           <testResource>
+                <directory>test</directory>
+           </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml</groupId>
+            <artifactId>jaxrpc</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jdt.core.compiler</groupId>
+            <artifactId>ecj</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+    </dependencies>
+</project>
+```
 
-### Installation
+# 3. **配置IDEA运行项目**
 
-Please see [RUNNING.txt](RUNNING.txt) for more info.
+ 
 
-### Licensing
+通过pom.xml文件构建一个新的工程
 
-Please see [LICENSE](LICENSE) for more info.
+ ![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011205777-1001919067.png)
 
-### Support and Mailing List Information
+ 
 
-* Free community support is available through the
-[tomcat-users](https://tomcat.apache.org/lists.html#tomcat-users) email list and
-a dedicated [IRC channel](https://tomcat.apache.org/irc.html) (#tomcat on
-Freenode).
+![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011408111-1510395312.png)
 
-* If you want freely available support for running Apache Tomcat, please see the
-resources page [here](https://tomcat.apache.org/findhelp.html).
+ 
 
-* If you want to be informed about new code releases, bug fixes,
-security fixes, general news and information about Apache Tomcat, please
-subscribe to the
-[tomcat-announce](https://tomcat.apache.org/lists.html#tomcat-announce) email
-list.
+ 
 
-* If you have a concrete bug report for Apache Tomcat, please see the
-instructions for reporting a bug
-[here](https://tomcat.apache.org/bugreport.html).
+ 
 
-### Contributing
+如果编译build的时候出现Test测试代码报错，注释该代码即可。Tomcat源码util.TestCookieFilter类会报错，将其注释即可
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for more info.
+ ![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011423255-2121143166.png)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tomcat启动的目录为一个main方法类：org.apache.catalina.startup.Bootstrap
+
+ ![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011459846-1870740156.png)
+
+ 
+
+ 
+
+添加VM options
+
+-Dcatalina.home=catalina-home
+
+-Dcatalina.base=catalina-home
+
+-Djava.endorsed.dirs=catalina-home/endorsed
+
+-Djava.io.tmpdir=catalina-home/temp
+
+-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+
+-Djava.util.logging.config.file=catalina-home/conf/logging.properties
+
+ 
+
+ ![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011508633-1891788386.png)
+
+ 
+
+ 
+
+运行项目，访问http://localhost:8080，得到结果：
+
+ ![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011531507-572168368.png)
+
+ 
+
+ 
+
+原因是我们直接启动org.apache.catalina.startup.Bootstrap的时候没有加载org.apache.jasper.servlet.JasperInitializer，从而无法编译JSP。
+
+解决办法是在tomcat的源码org.apache.catalina.startup.ContextConfig中的configureStart函数中手动将JSP解析器初始化：
+
+添加代码：context.addServletContainerInitializer(new JasperInitializer(), null);
+
+添加位置如下图：
+
+![image-20200727143803328](/Users/zhaokun/Library/Application Support/typora-user-images/image-20200727143803328.png)
+
+ 修改完后，项目再启动，我们再在浏览器访问http://localhost:8080/ ，就可以看到我们所熟悉的经典欢迎页面了
+
+![img](https://img2018.cnblogs.com/blog/1540950/201907/1540950-20190722011618365-147821880.png)
